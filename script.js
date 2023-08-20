@@ -3,3 +3,8 @@ function getComputerChoice() {
   let index = Math.floor(Math.random() * sign.length);
   return sign[index];
 }
+
+const playerSelection = prompt(
+  "What is your choice?",
+  "rock, paper, scissors"
+).toLowerCase();
