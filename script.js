@@ -1,42 +1,40 @@
-function game() {
-  function getComputerChoice() {
-    const sign = ["rock", "paper", "scissors"];
-    let index = Math.floor(Math.random() * sign.length);
-    return sign[index];
-  }
+function getComputerChoice() {
+  const sign = ["rock", "paper", "scissors"];
+  let index = Math.floor(Math.random() * sign.length);
+  return sign[index];
+}
 
-  const playerSelection = prompt(
-    "What is your choice?",
-    "rock, paper, scissors"
-  ).toLowerCase();
+const playerSelection = prompt(
+  "What is your choice?",
+  "rock, paper, scissors"
+).toLowerCase();
 
-  function playRound(playerSelection, computerSelection) {
-    if (
-      playerSelection == "rock" ||
-      playerSelection == "paper" ||
-      playerSelection == "scissors"
+function playRound(playerSelection, computerSelection) {
+  if (
+    playerSelection == "rock" ||
+    playerSelection == "paper" ||
+    playerSelection == "scissors"
+  ) {
+    if (playerSelection == computerSelection) {
+      alert("Draw!");
+    } else if (
+      (playerSelection == "rock" && computerSelection == "scissors") ||
+      (playerSelection == "paper" && computerSelection == "rock") ||
+      (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-      if (playerSelection == computerSelection) {
-        alert("Draw!");
-      } else if (
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "paper" && computerSelection == "rock") ||
-        (playerSelection == "scissors" && computerSelection == "paper")
-      ) {
-        alert(`You win, ${playerSelection} beat ${computerSelection}!`);
-      } else {
-        alert(`You lose, ${computerSelection} beat ${playerSelection}!`);
-      }
+      alert(`You win, ${playerSelection} beat ${computerSelection}!`);
     } else {
-      alert("Incorrect value. Choose rock, paper or scissors");
+      alert(`You lose, ${computerSelection} beat ${playerSelection}!`);
     }
+  } else {
+    alert("Incorrect value. Choose rock, paper or scissors");
   }
-
-  const computerSelection = getComputerChoice();
-
-  console.log(playRound(playerSelection, computerSelection));
 }
 
-for (let i = 0; i < 5; i++) {
-  game(i);
-}
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
+
+// for (let i = 0; i < 5; i++) {
+//   game(i);
+// }
