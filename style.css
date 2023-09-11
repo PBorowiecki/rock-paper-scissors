@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  background-color: aqua;
+  font-size: 20px;
+  /* flex: 1; */
+  height: 40px;
+  width: 140px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+div {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 50px;
+}
