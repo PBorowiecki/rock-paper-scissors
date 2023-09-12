@@ -14,6 +14,7 @@ let computerScore = 0;
 let round = 0;
 
 function playRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
   if (
     playerSelection == "rock" ||
     playerSelection == "paper" ||
@@ -41,13 +42,13 @@ function playRound(playerSelection, computerSelection) {
 
 const computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
 
 btns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     playerSelection = e.target.value;
     playRound(playerSelection, computerSelection);
-    getComputerChoice();
+    // getComputerChoice();
     console.log(playerSelection);
   });
 });
