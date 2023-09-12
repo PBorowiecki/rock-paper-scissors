@@ -38,17 +38,29 @@ function playRound(playerSelection, computerSelection) {
     alert("Incorrect value. Choose rock, paper or scissors");
   }
   scoreboard.textContent = `Round: ${round} - Player: ${playerScore} - Computer: ${computerScore}`;
+
+  if (playerScore == 5) {
+    showResult.textContent = `Congratulations, you won! You get 5 points`;
+    playerSelection = "";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  } else if (computerScore == 5) {
+    showResult.textContent = `Unfortunately you lost, the computer scores 5 points`;
+    playerSelection = "";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  }
 }
 
 const computerSelection = getComputerChoice();
-
-// console.log(playRound(playerSelection, computerSelection));
 
 btns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     playerSelection = e.target.value;
     playRound(playerSelection, computerSelection);
-    // getComputerChoice();
+
     console.log(playerSelection);
   });
 });
