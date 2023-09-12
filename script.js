@@ -1,13 +1,13 @@
+const btns = [...document.querySelectorAll("button")];
+const showResult = document.querySelector(".show-result");
+
 function getComputerChoice() {
   const sign = ["rock", "paper", "scissors"];
   let index = Math.floor(Math.random() * sign.length);
   return sign[index];
 }
 
-const playerSelection = prompt(
-  "What is your choice?",
-  "rock, paper, scissors"
-).toLowerCase();
+let playerSelection = "";
 
 function playRound(playerSelection, computerSelection) {
   if (
@@ -35,6 +35,9 @@ const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
 
-// for (let i = 0; i < 5; i++) {
-//   game(i);
-// }
+btns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    playerSelection = e.target.value;
+    console.log(playerSelection);
+  });
+});
