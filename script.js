@@ -16,15 +16,15 @@ function playRound(playerSelection, computerSelection) {
     playerSelection == "scissors"
   ) {
     if (playerSelection == computerSelection) {
-      alert("Draw!");
+      showResult.textContent = "Draw!";
     } else if (
       (playerSelection == "rock" && computerSelection == "scissors") ||
       (playerSelection == "paper" && computerSelection == "rock") ||
       (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-      alert(`You win, ${playerSelection} beat ${computerSelection}!`);
+      showResult.textContent = `You win, ${playerSelection} beat ${computerSelection}!`;
     } else {
-      alert(`You lose, ${computerSelection} beat ${playerSelection}!`);
+      showResult.textContent = `You lose, ${computerSelection} beat ${playerSelection}!`;
     }
   } else {
     alert("Incorrect value. Choose rock, paper or scissors");
@@ -38,6 +38,8 @@ console.log(playRound(playerSelection, computerSelection));
 btns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     playerSelection = e.target.value;
+    playRound(playerSelection, computerSelection);
+    getComputerChoice();
     console.log(playerSelection);
   });
 });
